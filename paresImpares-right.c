@@ -33,7 +33,7 @@ int main(){
 
 	printf("El vector es:\n");
 	for(i=0;i<10;i++){
-		V[i]=rand()%1000+1;
+		V[i]=rand()%6+1;
 		printf("%d\t",V[i]);
 	}
 	ordenar(V);		
@@ -41,9 +41,6 @@ int main(){
 }
 
 void ordenar(int *V){
-	printf("%d", V[1]);
-	
-	
     for (i = 0; i < 10; ++i){
         for (j = i + 1; j < 10; ++j){
             if (V[i]%2==0){
