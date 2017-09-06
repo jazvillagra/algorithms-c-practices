@@ -21,7 +21,6 @@
  * 
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,15 +64,9 @@ int isMagic(int cuad[3][3]){
 			fila[i] = 0;
 			colum[i] = 0;
 			for (j = 0; j < 3; j++){
-				printf("\nFila nro %d y columna nro. %d",i,j);
 				fila[i] += cuad[i][j];
-				printf("\tElemento: %d",cuad[i][j]);
-				printf("\nAhora al reves. Fila %d y columna %d", j, i);
 				colum[i] += cuad[j][i];
-				printf("\tElemento: %d",cuad[j][i]);
 			}
-			printf("\nFila nro. %d: %d", i, fila[i]);
-			printf("\nColumna nro. %d: %d", i, colum[i]);
 			if(fila[i] == colum[i]){
 				magic = 1;
 			}else{
