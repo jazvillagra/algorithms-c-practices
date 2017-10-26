@@ -1,0 +1,56 @@
+1- Una empresa tiene datos acerca de las ventas realizadas en un año. El informe tiene:
+	* Código de zona
+	* Día, mes
+	* Importe
+Los datos están ordenados por código de zona. Se desea saber:
+	a) A cuánto ascienden las ventas por mes en cada zona
+	b) Cual es el total de ventas por mes de la empresa
+
+2- En un año determinado se realizó un control en un puesto de peaje. Todos los datos obtenidos en un archivo con el siguiente formato:
+	cod_vehiculo		tipo		monto
+		01				auto		5000
+		02				camioneta	7500
+		03				minibus		7500
+		04				omnibus		10000
+		05				camion		20000
+A cada camión con o sin acoplado se los pesó y cobró un recargo de Gs. 200 por cada 50Kg. o fracción. Ejemplo: 1201 -> 1250; 1249 -> 1250; 1451 -> 1500. Se desea saber por mes:
+	* Cuántos vehiculos de cada tipo pasaron
+	* Monto total cobrado
+Por año:
+	* Promedio de recaudación mensual
+	* Total de vehiculos que pasaron
+Obs.: El archivo está ordenado por mes, día y cod_vehiculo
+
+3- Una empresa se dedica desde 1980 a comercializar 30 diferentes productos importados. Tiene grabado en un archivo ordenado por año, mes y día todas las compras y ventas realizadas desde que empezó a operar en el país. El formato de registro es el siguiente:
+Año, mes, dia, cod_producto(1 al 30), tipo,(1=compra, 2=venta), cantidad, monto unitario.
+Imprimir un reporte que demuestre la ganancia obtenida por cada producto y la utilidad total en el año.
+
+4- Una empresa tiene grabadas las ventas cuatrimestrales realizadas por cada vendedor y que corresponden a un cierto año. Cada registro tiene el siguiente formato:
+	* nombre, fecha de ingreso (dd/mm/aaaa), c1, c2, c3
+
+Hacer un programa que imprima el nombre del vendedor que vendió regularmente y cuya fecha de ingreso sea la más reciente.
+Se considera que vendió regularmente si al menos dos de los cuatrimestres, vendió como mínimo Gs. 45000 y en promedio la venta cuatrimestral fue mayor o igual a los Gs. 40000. Si existen vendedores que cumplan la condición, imprimir el último encontrado.
+
+5- Se tiene un archivo de las notas de unos alumnos, agrupados por cursos. Cada registro posee los siguientes datos:
+	* Curso, cédula, nota, nombre, asignatura
+El archivo se encuentra ordenado por curso y en cada curso por cédula. Escriba un programa que imprima el promedio de nota de cada alumno, agrupado por curso, y el promedio de cada curso.
+
+6- Un banco tiene grabado en un archivo los movimientos diarios de sus sucursales de un mes específico. El formato es:
+	* Sucursal, Nro. Asiento, línea, nombre de cuenta, fecha, tipo de linea, importe.
+El archivo está ordenado por sucursal, nro. de asiento y tipo de línea.
+Generar la siguiente salida:
+
+__________________________________________________________________________________________________________________________________________________
+|	Asiento	| Linea	|	Fecha	|	Tipo	|	Nombre de cuenta	|	Debe	|	Haber	|
+_____________________________________________________________________________________________
+|	Sucursal: 01																			|
+_____________________________________________________________________________________________
+|	1			1	02/01/1999		D			Caja					10.000				|
+_____________________________________________________________________________________________
+|	2			2	02/01/1999		D			Venta Mercaderias					10.000	|
+_____________________________________________________________________________________________
+|	1			1	02/01/1999		D			Caja					10.000				|
+_____________________________________________________________________________________________
+|	1			1	02/01/1999		D			Caja					10.000				|
+_____________________________________________________________________________________________
+

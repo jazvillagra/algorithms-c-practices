@@ -63,12 +63,12 @@ char reemp(char *cad, char *cd, char *rp, int veces){
 	if(veces > 0 && corte != NULL){
 		//todo lo comentado era solo para las pruebas de escritorio
 		strcpy(bas, corte+strlen(cd));
-		//printf("\n \t ESTA ES LA VARIABLE BAS:%s\n",bas);
+		printf("\n \t ESTA ES LA VARIABLE BAS:%s\n",bas);
 		corte[0]='\0';
 		strcat(cad,rp);
-		//printf("\n\t ESTA ES LA VARIABLE CAD:%s\n",cad);
+		printf("\n\t ESTA ES LA VARIABLE CAD:%s\n",cad);
 		strcat(cad,bas);
-		//printf("\n\t ESTA ES LA VARIABLE CAD:%s\n",cad);
+		printf("\n\t ESTA ES LA VARIABLE CAD:%s\n",cad);
 		reemp(cad, cd, rp, veces-1);
 	}
 	
