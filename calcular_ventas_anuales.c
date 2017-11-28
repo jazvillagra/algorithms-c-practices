@@ -47,7 +47,6 @@ int main(int argc, char **argv){
 		fscanf(archivo, "%d,%d,%d,%d", &linea.zona, &linea.dia, &linea.mes, &linea.importe);
 		primerRegistro();
 		while(!feof(archivo)){
-//				printf("\n zona test en while %d \n", linea.zona);
 			if(cZona != linea.zona){
 				corteZona();
 			}

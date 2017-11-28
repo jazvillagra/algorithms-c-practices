@@ -1,4 +1,5 @@
-1- Una empresa tiene datos acerca de las ventas realizadas en un año. El informe tiene:
+1- Una empresa tiene datos acerca de las ventas realizadas en un año.
+El informe tiene:
 	* Código de zona
 	* Día, mes
 	* Importe
@@ -40,17 +41,33 @@ El archivo se encuentra ordenado por curso y en cada curso por cédula. Escriba 
 El archivo está ordenado por sucursal, nro. de asiento y tipo de línea.
 Generar la siguiente salida:
 
-__________________________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________
 |	Asiento	| Linea	|	Fecha	|	Tipo	|	Nombre de cuenta	|	Debe	|	Haber	|
 _____________________________________________________________________________________________
 |	Sucursal: 01																			|
 _____________________________________________________________________________________________
 |	1			1	02/01/1999		D			Caja					10.000				|
 _____________________________________________________________________________________________
-|	2			2	02/01/1999		D			Venta Mercaderias					10.000	|
+|	1			2	02/01/1999		C			Venta Mercaderias					10.000	|
 _____________________________________________________________________________________________
-|	1			1	02/01/1999		D			Caja					10.000				|
+|	1			1	03/01/1999		D			Caja					10.000				|
+____________________________________________________________________________________________
+|	1			1	04/01/1999		C			Caja								10.000	|
 _____________________________________________________________________________________________
-|	1			1	02/01/1999		D			Caja					10.000				|
-_____________________________________________________________________________________________
+
+
+7- Un dominio de internet tiene la siguiente forma: subdominio.dominio.cod_pais
+Ej.: facen.una.py
+Hacer una subrutina que dada una cadena que representa un nombre de dominio retorne:
+	1) Nombre de dominio convertido al formato: cod_pais.dominio.subdominio
+Obs.: puede haber cualquier cantidad de subdominios, todos separados por un punto.
+	2) La cadena "Error" si el nombre de dominio tiene algun error. Un error es:
+		* No pueden haber dos . seguidos
+		* Un dominio no puede empezar ni terminar con un punto
+
+Condiciones:
+	a- No se pueden usar arrays
+	b- Se pueden crear subrutinas extras si fueran necesarias
+	c- Las subrutinas no pueden utilizar ninguna variable global
+	
 
