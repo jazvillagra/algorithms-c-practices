@@ -29,7 +29,9 @@
 void formateo(char *, char *, int veces);
 int main(){
 	
-	char format[900],cadena[900];
+	char *cadena;
+	char *format;
+	
 	char *form;
 	int veces;
 	printf("Introduzca una sentencia con %% donde se deba agregar valores:\n ");
@@ -37,21 +39,25 @@ int main(){
 	getc(stdin);
 	printf("Introduzca valores para formatear sentencia anterior separados por | :\n ");
 	scanf("%[^\n]", format);
+	printf("\n\tSe leyo: %s", format);
 	getc(stdin);
 	char formato[900];
 	strcpy(formato, format);
-	
+	printf("\n\tSe copio: %s", formato);
 	form = strtok(format, "|");
+	printf("\n\tSe corto: %s", form);
+	
 	while(form != NULL){
-		form = strtok(NULL, "|");
 		veces++;
+		form = strtok(NULL, "|");
+		printf("\n\tVeces= %d\n\tSe corto: %s", veces,form);
 	}
 	
 	formateo(formato, cadena, veces);
 	return 0;
 }
 
-void formateo(char *fmt, char* cad, int veces){
+void formateo(char *fmt, char *cad, int veces){
 	
 	char *corte;
 	char bas[900];
@@ -73,6 +79,7 @@ void formateo(char *fmt, char* cad, int veces){
 		strcat(cad, bas);
 		printf("\n9- Y ahora cad = %s", cad);
 		f = strtok(NULL,"|");
+		printf("\n10- Ultimo corte hecho en f= %s", f);
 		printf("\n\n");
 		formateo(f, cad, veces-1);
 	}else{
