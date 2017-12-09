@@ -26,13 +26,14 @@
 //Declaramos el registro que contiene los datos en el archivo
 struct registro{
 	int sucursal,asiento,nroLinea,importe;
-	char cuenta[100];
-	char tipoLinea[1];
-	char fecha[20];
+	char *cuenta;
+	char *tipoLinea;
+	char *fecha;
 };
 struct registro linea;
 //Proceso de corte de control
 void primerRegistro();
+void procesarDatos();
 void primerCorte();
 void segundoCorte();
 void reporteFinal();
@@ -40,16 +41,16 @@ void reporteFinal();
 FILE * archivo;
 int cSucursal, cAsiento, debe, haber, totalDebe, totalHaber;
 int main(int argc, char **argv){
-	archivo=fopen("libro-banco.csv","r");
+	archivo=fopen("banco.csv","r");
 	if(archivo != NULL){
-		fscanf(archivo,"%d,%d,%d,%s,%s,%s,%d", &linea.sucursal, &linea.asiento, &linea.nroLinea, &linea.cuenta, &linea.fecha, &linea.tipoLinea, &linea.importe);
+		fscanf(archivo,"%d,%d,%d,%s,%s,%s,%d", &linea.sucursal, &linea.asiento, &linea.nroLinea, linea.cuenta, linea.fecha, linea.tipoLinea, &linea.importe);
 		primerRegistro();
 		while(!feof(archivo)){
 			if (cSucursal != linea.sucursal || cAsiento != linea.asiento){
 				segundoCorte();
 			}
 			procesarDatos();
-			fscanf(archivo,"%d,%d,%d,%s,%s,%s,%d", &linea.sucursal, &linea.asiento, &linea.nroLinea, &linea.cuenta, &linea.fecha, &linea.tipoLinea, &linea.importe);
+			fscanf(archivo,"%d,%d,%d,%s,%s,%s,%d", &linea.sucursal, &linea.asiento, &linea.nroLinea, linea.cuenta, linea.fecha, linea.tipoLinea, &linea.importe);
 		}
 		segundoCorte();
 		fclose(archivo);
@@ -68,8 +69,12 @@ void primerRegistro(){
 }
 
 void procesarDatos(){
-	printf("\n\t\t%d\t%s\t%s\t%d", linea.nroLinea, linea.tipoLinea, linea.fecha, linea.cuenta);
-	if(strcmp(&linea.tipoLinea,"D")){
+	printf("\n\t\t %d \t %s \t %s \t %s", linea.nroLinea, linea.tipoLinea, linea.fecha, linea.cuenta);
+	int d;
+	char *value= "D";
+	linea.tipoLinea = toupper(linea.tipoLinea);
+	d = strcmp(&linea.tipoLinea, &value);
+	if(d == 0){
 		printf("\t%d",linea.importe);
 		totalDebe= totalDebe + linea.importe;
 	}else{
@@ -91,5 +96,9 @@ void segundoCorte(){
 		printf("\n\tAsiento: %d",linea.asiento);
 		cAsiento=linea.asiento;
 	}
-	totalDebe,totalHaber=0;
+	totalDebe=0;
+	totalHaber=0;
+}
+void reporteFinal(){
+	
 }

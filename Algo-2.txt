@@ -70,4 +70,16 @@ Condiciones:
 	b- Se pueden crear subrutinas extras si fueran necesarias
 	c- Las subrutinas no pueden utilizar ninguna variable global
 	
+8- Escribir una subrutina que diga si una cadena de caracteres es simétrica (palíndromo)
 
+9- Escriba un programa que permita leer una cadena que pueda contener letras y dígitos y una función que permita determinar la cantidad de dígitos en la cadena
+
+10- Escriba un programa que introduzca una línea de texto, que divida en tokens la línea por medio de la función strtok y que muestre los tokens en modo inverso
+
+11- Escriba un programa que introduzca una línea de texto y una cadena de búsqueda desde el teclado. Mediante la función strstr, localice la primera ocurrencia
+de la cadena de búsqueda en la línea de texto. Asigne la ubicación a la variable ptrBusqueda de tipo char*. Si encuentra la cadena de búsqueda, imprima el resto
+de la línea de texto, comenzando con la cadena de búsqueda. Luego, utilice de nuevo strstr para localizar la siguiente ocurrencia de la cadena de búsqueda en la
+línea de texto. Si existe una siguiente ocurrencia, imprima el resto de la línea de texto comenzando con la segunda ocurrencia.
+TIP: la segunda llamada a strstr, debe contener prtBusqueda+1 como primer argumento.
+
+11- Imprimir una cadena invertida

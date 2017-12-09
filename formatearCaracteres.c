@@ -27,7 +27,7 @@
 #include <string.h>
 
 void formateo(char *, char *, int veces);
-int main(int argc, char **argv){
+int main(){
 	
 	char format[900],cadena[900];
 	char *form;
@@ -57,13 +57,23 @@ void formateo(char *fmt, char* cad, int veces){
 	char bas[900];
 	char *f;
 	f = strtok(fmt, "|");
+	printf("\n1- f = %s", f);
 	corte= strstr(cad, "%");
+	printf("\n2- corte = %s", corte);
+	printf("\n3- cad = %s", cad);
+	printf("\n4- Ahora entra al if");
 	if(veces > 0 && corte != NULL){
 		strcpy(bas, corte+1);
+		printf("\n5- Entra al if. Con bas = %s", bas);
 		corte[0]='\0';
+		printf("\n6- Ahora en corte hay un espacio vacio.");
+		printf("\n7- Ahora cad = %s", cad);
 		strcat(cad, f);
+		printf("\n8- cad = %s", cad);
 		strcat(cad, bas);
+		printf("\n9- Y ahora cad = %s", cad);
 		f = strtok(NULL,"|");
+		printf("\n\n");
 		formateo(f, cad, veces-1);
 	}else{
 		printf("\n%s",cad);

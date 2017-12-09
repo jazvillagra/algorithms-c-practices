@@ -90,19 +90,28 @@ void mostrar_lista(){
 
 
 void borrar_elemento(){
-	struct _agenda *aux;
+	struct _agenda *act, *ant, *aux;
+	aux =(struct _agenda *) NULL;
 	int i;
 	int x;
 	printf("\nIngrese el nro. de nodo a eliminar: ");
-	scanf("%d", x);
+	scanf("%d", &x);
 	i=0;
-	aux=primero;
+	act=primero;
+	ant=primero;
 	/* debe haber un puntero adicional para guardar el anterior, y reemplazar el aux[i] con el anterior */
-	while(aux!=NULL && i < x) {
-		aux= aux->siguiente;
+	while(act!=NULL && i < x-1) {
+		ant= act;
+		act= act->siguiente;
+		printf("\n\t\tElemento anterior: %s", ant->nombre);
+		printf("\n\t\tElemento actual: %s", act->nombre);
 		i++;
 	}
-	
+	if(act != NULL){
+		aux=act;
+		ant->siguiente=act->siguiente;
+		free(aux);
+	}
 	if(i==0)
 		printf("\nLa lista está vacia!");
 }
@@ -119,7 +128,7 @@ int main(int argc, char **argv){
 		switch(opcion){
 			case 1: adir_elemento();
 				break;
-			case 2: printf("No disponible todavia\n");
+			case 2: borrar_elemento();
 				break;
 			case 3:	printf("No disponible todavia\n");
 				break;
