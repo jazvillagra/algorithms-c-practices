@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 	char dominio[900];	
 	int valid = 1;
 	printf("Ingrese el nombre de dominio: ");
-	scanf("%s`", dominio);
+	scanf("%s", dominio);
 	
 	printf("\n1- Dominio ingresado: %s", dominio);
 	
