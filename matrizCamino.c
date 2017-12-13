@@ -25,26 +25,60 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 
 int main(int argc, char **argv){
 	
-	int m,n,i,j;
+	int m,n,i,j,f,c, ff, cf;
 	printf("Introduzca la cantidad de filas: ");
 	scanf("%d", &m);
 	printf("Introduzca la cantidad de columnas: ");
 	scanf("%d", &n);
 	
 	char caminos[m][n];
+	int copy[m][n];
 
 	printf("Introduza:\n\tA= arriba\n\tB= abajo\n\tI= izquierda\n\tD= derecha\n\tC= cerrado\n");
 	for(i=0;i<m;i++){
 		for(j=0;j<n;j++){
 			scanf("\n %c", &caminos[i][j]);
+			copy[i][j]=0;
 		}
 	}
+	
+	printf("Introduzca el nro de fila y columna de inicio:\n");
+	scanf("%d\n%d",&f,&c);
+	copy[f][c]=1;
+	printf("Introduzca el nro de fila y columna de fin:\n");
+	scanf("%d\n%d",&ff,&cf);
+	i=f;
+	j=c;
+	switch (toupper(caminos[i][j]))
+	{
+		case 'A':
+			i--;
+			copy[i][j]=1;
+			break;
+		case 'B':
+			i++;
+			copy[i][j]=1;
+			break;
+		case 'D':
+			j++;
+			copy[i][j]=1;
+			break;
+		case 'I':
+			j--;
+			copy[i][j]=1;
+			break;
+		default:
+			printf("Invalid");
+	}
+	
+	
 	printf("\nA ver:\n");
-	j=0;
+	
 	for(i=0;i<m;i++){
 		for(j=0;j<n;j++){
 			printf("\t%c", caminos[i][j]);
