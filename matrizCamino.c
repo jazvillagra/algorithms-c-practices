@@ -27,6 +27,17 @@
 #include <string.h>
 #include <ctype.h>
 
+struct nodo{
+	int x;
+	int y;
+	struct nodo *siguiente;
+};
+
+struct nodo *inicio = NULL;
+struct nodo *final = NULL;
+
+void encolar(int,int);
+struct nodo * desencolar();
 
 int main(int argc, char **argv){
 	
@@ -49,33 +60,42 @@ int main(int argc, char **argv){
 	
 	printf("Introduzca el nro de fila y columna de inicio:\n");
 	scanf("%d\n%d",&f,&c);
-	copy[f][c]=1;
 	printf("Introduzca el nro de fila y columna de fin:\n");
 	scanf("%d\n%d",&ff,&cf);
 	i=f;
 	j=c;
-	switch (toupper(caminos[i][j]))
-	{
-		case 'A':
-			i--;
-			copy[i][j]=1;
-			break;
-		case 'B':
-			i++;
-			copy[i][j]=1;
-			break;
-		case 'D':
-			j++;
-			copy[i][j]=1;
-			break;
-		case 'I':
-			j--;
-			copy[i][j]=1;
-			break;
-		default:
-			printf("Invalid");
+	while(i>=0 && i<m && j>=0 && j<n && toupper(caminos[i][j])!='C' && copy[i][j]!=1){
+		copy[i][j] = 1;
+		encolar(i,j);
+		switch (toupper(caminos[i][j]))
+		{
+			case 'A':
+				i--;
+				break;
+			case 'B':
+				i++;
+				break;
+			case 'D':
+				j++;
+				break;
+			case 'I':
+				j--;
+				break;
+			default:
+				printf("Invalid");
+		}
 	}
 	
+	if(i==ff && j==cf){
+		printf("El camino recorrido para llegar exitosamente a la posicion final es: ");
+		struct nodo *recorrido = desencolar();
+		while(recorrido!=NULL){
+			printf("%d, %d\n",recorrido->x, recorrido->y);
+			recorrido = desencolar();
+		}
+	}else{
+		printf("No existe un camino para llegar al destino");
+	}
 	
 	printf("\nA ver:\n");
 	
@@ -87,3 +107,29 @@ int main(int argc, char **argv){
 	}
 }
 
+void encolar(int x, int y){
+	struct nodo *nuevo = (struct nodo*)malloc(sizeof(struct nodo));
+	nuevo->x = x;
+	nuevo->y = y;
+	nuevo->siguiente = NULL;
+	if(inicio == NULL){
+		inicio = nuevo;
+		final = nuevo;
+	}else{
+		final->siguiente = nuevo;
+		final = nuevo;
+	}
+}
+
+struct nodo *desencolar(){
+	struct nodo *aux = inicio;
+	if(aux==NULL){
+		return NULL;
+	}
+	inicio = inicio->siguiente;
+	if(inicio==NULL){
+		final = NULL;
+	}
+	
+	return aux;
+}
