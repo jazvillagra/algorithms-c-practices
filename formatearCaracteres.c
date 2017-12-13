@@ -44,7 +44,7 @@ int main(){
 	char formato[900];
 	strcpy(formato, format);
 	printf("\n\tSe copio: %s", formato);
-	form = strtok(format, "|");
+	form = strtok(formato, "|");
 	printf("\n\tSe corto: %s", form);
 	
 	while(form != NULL){
@@ -53,7 +53,7 @@ int main(){
 		printf("\n\tVeces= %d\n\tSe corto: %s", veces,form);
 	}
 	
-	formateo(formato, cadena, veces);
+	formateo(format, cadena, veces);
 	return 0;
 }
 
