@@ -64,7 +64,7 @@ int main(int argc, char **argv){
 	scanf("%d\n%d",&ff,&cf);
 	i=f;
 	j=c;
-	while(i>=0 && i<m && j>=0 && j<n && toupper(caminos[i][j])!='C' && copy[i][j]!=1){
+	while(i>=0 && i<m && j>=0 && j<n && toupper(caminos[i][j])!='C' && copy[i][j]!=1 && i!=ff && j!=cf){
 		copy[i][j] = 1;
 		encolar(i,j);
 		switch (toupper(caminos[i][j]))
